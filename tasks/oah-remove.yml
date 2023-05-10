@@ -1,0 +1,13 @@
+---
+
+- name: Uninstall Docker
+  become: yes
+  apt:
+    name: "{{ docker_uninstall_items }}"
+    state: absent
+
+- name: Remove docker containers and volumes
+  become: yes
+  file: 
+    path: "{{ docker_files }}"
+    state: absent

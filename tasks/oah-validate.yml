@@ -1,0 +1,25 @@
+---
+
+- name: Ensure Docker is installed and command is running
+  command: docker --version
+  register: docker_command
+  failed_when: false
+  no_log: True
+
+- name: Docker is installed
+  debug:
+    msg: "Docker installation not found"
+  when: "{{docker_command.rc != 0}}"
+
+- name: Docker is installed
+  debug:
+    msg: Docker is Installed
+  when: "{{docker_command.rc == 0}}"
+
+- name: Ensure /etc/docker/ directory exists.
+  file:
+    path: /etc/docker
+    state: directory
+    mode: 0755
+  when: docker_daemon_options.keys() | length > 0
+

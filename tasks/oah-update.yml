@@ -1,0 +1,14 @@
+---
+
+- name: Uninstall the existing version of Docker
+  apt:
+    name: "{{ docker_uninstall_items}}"
+    state: absent
+    update_cache: yes
+  ignore_errors: True
+
+- name: Upgrading to the Latest version
+  include: "tasks/oah-install.yml"
+
+
+
