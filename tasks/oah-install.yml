@@ -57,6 +57,7 @@
   ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Configure Docker daemon options.
+  become: yes
   copy:
     content: "{{ docker_daemon_options | to_nice_json }}"
     dest: /etc/docker/daemon.json
