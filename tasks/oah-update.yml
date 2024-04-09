@@ -8,7 +8,7 @@
   ignore_errors: True
 
 - name: Upgrading to the Latest version
-  include: "tasks/oah-install.yml"
+  include_tasks: "tasks/oah-install.yml"
 
 
 

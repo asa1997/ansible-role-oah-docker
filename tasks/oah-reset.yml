@@ -1,10 +1,10 @@
 ---
 
 - name: Validating Installation
-  include: "tasks/oah-validate.yml"
+  include_tasks: "tasks/oah-validate.yml"
 
 - name: Removing current configuration
-  include: "tasks/oah-remove.yml"
+  include_tasks: "tasks/oah-remove.yml"
 
 - name: Installing fresh config
-  include: "tasks/oah-install.yml"
+  include_tasks: "tasks/oah-install.yml"
